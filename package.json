@@ -20,7 +20,8 @@
     "@next/font": "latest",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "recharts": "2.1.16"
   },
   "devDependencies": {
     "@types/node": "latest",
