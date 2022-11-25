@@ -8,17 +8,78 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import TrendingDownIcon from '@mui/icons-material/TrendingDown';
+import Battery90Icon from '@mui/icons-material/Battery90';
 
-const card = (
+const cardUptime = (
     <React.Fragment>
         <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                uptime
+                Uptime
             </Typography>
             <Typography variant="h5" component="div">
                 85 %
             </Typography>
-            <TrendingUpIcon />
+            <TrendingUpIcon style={{
+                color: 'green'
+            }} />
+        </CardContent>
+        <CardActions>
+            <Button size="small">Learn More</Button>
+        </CardActions>
+    </React.Fragment>
+);
+
+const cardUtilisation = (
+    <React.Fragment>
+        <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                Utilisation
+            </Typography>
+            <Typography variant="h5" component="div">
+                70 %
+            </Typography>
+            <TrendingDownIcon style={{
+                color: 'red'
+            }} />
+        </CardContent>
+        <CardActions>
+            <Button size="small">Learn More</Button>
+        </CardActions>
+    </React.Fragment>
+);
+
+const cardConsumption = (
+    <React.Fragment>
+        <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                Consumption
+            </Typography>
+            <Typography variant="h5" component="div">
+                300 kWh
+            </Typography>
+            <Battery90Icon style={{
+                color: 'red'
+            }} />
+        </CardContent>
+        <CardActions>
+            <Button size="small">Learn More</Button>
+        </CardActions>
+    </React.Fragment>
+);
+
+const cardRevenue = (
+    <React.Fragment>
+        <CardContent>
+            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                Revenue
+            </Typography>
+            <Typography variant="h5" component="div">
+                £10,000
+            </Typography>
+            <TrendingUpIcon style={{
+                color: 'green'
+            }} />
         </CardContent>
         <CardActions>
             <Button size="small">Learn More</Button>
@@ -37,9 +98,24 @@ export default function Home() {
                   Account summary
               </Typography>
               <Grid container spacing={1}>
-                  <Grid xs={3}>
+                  <Grid xs={12} md={3}>
                       <Box sx={{ minWidth: 275 }}>
-                          <Card variant="outlined">{card}</Card>
+                          <Card variant="outlined">{cardUptime}</Card>
+                      </Box>
+                  </Grid>
+                  <Grid xs={12} md={3}>
+                      <Box sx={{ minWidth: 275 }}>
+                          <Card variant="outlined">{cardUtilisation}</Card>
+                      </Box>
+                  </Grid>
+                  <Grid xs={12} md={3}>
+                      <Box sx={{ minWidth: 275 }}>
+                          <Card variant="outlined">{cardConsumption}</Card>
+                      </Box>
+                  </Grid>
+                  <Grid xs={12} md={3}>
+                      <Box sx={{ minWidth: 275 }}>
+                          <Card variant="outlined">{cardRevenue}</Card>
                       </Box>
                   </Grid>
               </Grid>
