@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper';
 import {Button, Chip} from "@mui/material";
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 
-function createData(
+export function createData(
     charger: string,
     postcode: string,
     available: boolean,
@@ -22,12 +22,7 @@ function createData(
     return {charger, postcode, available, avgUptime, utilisation, kwh, warrantyExpires, lastMaintenance};
 }
 
-export default function BasicTable() {
-    const [tableRows, setTableRows] = useState([
-        createData('0001', 'E3HFG', true, 60, 45, 18.7, '24/09/2023', '08/10/2022'),
-        createData('0002', 'E141PQ', false, 20, 8, 5.8, '03/01/2023', '07/08/2022'),
-    ]);
-
+export default function BasicTable(props: any) {
     return (
         <TableContainer component={Paper}>
             <Table sx={{minWidth: 650}} aria-label="simple table">
@@ -45,7 +40,7 @@ export default function BasicTable() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {tableRows.map((row) => (
+                    {props.tableRows.map((row: any) => (
                         <TableRow
                             key={row.charger}
                             sx={{'&:last-child td, &:last-child th': {border: 0}}}
@@ -78,7 +73,7 @@ export default function BasicTable() {
                                     size="small"
                                     style={{marginLeft: 16}}
                                     onClick={() => {
-                                        const newTableRows = tableRows.map(currentRow => {
+                                        const newTableRows = props.tableRows.map((currentRow: { charger: string; postcode: string; available: any; avgUptime: number; utilisation: number; kwh: number; warrantyExpires: string; lastMaintenance: string; }) => {
                                             if (currentRow.charger !== row.charger) {
                                                 // No change
                                                 return currentRow
@@ -87,7 +82,7 @@ export default function BasicTable() {
                                             }
                                         })
                                         // Re-render with the new array
-                                        setTableRows(newTableRows)
+                                        props.setTableRows(newTableRows)
                                     }}
                                 >
                                     Action
