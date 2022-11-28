@@ -10,19 +10,19 @@ import {Button, Chip} from "@mui/material";
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 
 export function createData(
-    charger: string,
-    postcode: string,
-    available: boolean,
-    avgUptime: number,
-    utilisation: number,
-    kwh: number,
-    warrantyExpires: string,
-    lastMaintenance: string
+    charger,
+    postcode,
+    available,
+    avgUptime,
+    utilisation,
+    kwh,
+    warrantyExpires,
+    lastMaintenance
 ) {
     return {charger, postcode, available, avgUptime, utilisation, kwh, warrantyExpires, lastMaintenance};
 }
 
-export default function BasicTable(props: any) {
+export default function BasicTable(props) {
     return (
         <TableContainer component={Paper}>
             <Table sx={{minWidth: 650}} aria-label="simple table">
@@ -40,7 +40,7 @@ export default function BasicTable(props: any) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {props.tableRows.map((row: any) => (
+                    {props.tableRows.map((row) => (
                         <TableRow
                             key={row.charger}
                             sx={{'&:last-child td, &:last-child th': {border: 0}}}
@@ -73,7 +73,7 @@ export default function BasicTable(props: any) {
                                     size="small"
                                     style={{marginLeft: 16}}
                                     onClick={() => {
-                                        const newTableRows = props.tableRows.map((currentRow: { charger: string; postcode: string; available: any; avgUptime: number; utilisation: number; kwh: number; warrantyExpires: string; lastMaintenance: string; }) => {
+                                        const newTableRows = props.tableRows.map((currentRow) => {
                                             if (currentRow.charger !== row.charger) {
                                                 // No change
                                                 return currentRow

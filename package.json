@@ -1,35 +1,32 @@
 {
-  "name": "nextjs-with-typescript",
+  "name": "gatsby",
   "version": "5.0.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start",
-    "lint": "next lint",
-    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",
-    "deploy": "npm run build && gh-pages -d out -b gh-pages"
-  },
+  "browserslist": [
+    ">0.25%",
+    "not dead"
+  ],
   "dependencies": {
-    "@emotion/cache": "latest",
     "@emotion/react": "latest",
     "@emotion/server": "latest",
     "@emotion/styled": "latest",
-    "@mui/icons-material": "^5.10.15",
+    "@mui/icons-material": "5.10.16",
     "@mui/material": "latest",
-    "@mui/x-data-grid": "^5.17.13",
-    "@next/font": "latest",
-    "next": "latest",
+    "gatsby": "latest",
+    "gatsby-plugin-react-helmet": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-helmet": "latest",
     "recharts": "2.1.16"
   },
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",
+    "deploy": "rm -rf public && gatsby build && gh-pages -d public -b gh-pages"
+  },
   "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
-    "gh-pages": "4.0.0",
-    "typescript": "latest"
+    "gh-pages": "4.0.0"
   }
 }
