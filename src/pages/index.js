@@ -151,15 +151,7 @@ export default function Index() {
           </Grid>
         </Grid>
         <Typography variant="h6" component="h2" gutterBottom>
-          Site summary
-        </Typography>
-        <Grid container spacing={1}>
-          <Grid xs={12}>
-            TODO
-          </Grid>
-        </Grid>
-        <Typography variant="h6" component="h2" gutterBottom>
-          Issues
+          Site Issues
         </Typography>
         <Grid container spacing={1}>
           <Grid xs={12}>
