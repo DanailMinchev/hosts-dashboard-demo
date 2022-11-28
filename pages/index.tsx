@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import Battery90Icon from '@mui/icons-material/Battery90';
+import IssueTable from '../src/components/issueTable';
 
 const cardUptime = (
     <React.Fragment>
@@ -132,7 +133,7 @@ export default function Home() {
               </Typography>
               <Grid container spacing={1}>
                   <Grid xs={12}>
-                      TABLE HERE
+                      <IssueTable />
                   </Grid>
               </Grid>
           </Container>

@@ -17,6 +17,7 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "5.10.15",
     "@mui/material": "latest",
+    "@mui/x-data-grid": "^5.17.13",
     "@next/font": "latest",
     "next": "latest",
     "react": "latest",
