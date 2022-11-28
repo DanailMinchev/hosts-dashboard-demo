@@ -11,7 +11,7 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import MenuIcon from '@mui/icons-material/Menu';
 import Battery90Icon from '@mui/icons-material/Battery90';
-import IssueTable from '../src/components/issueTable';
+import SimpleTable from '../src/components/simpleTable';
 import { AppBar, Toolbar } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 
@@ -104,10 +104,10 @@ export default function Home() {
                         Hosts
                     </Typography>
                     <Typography variant="h6" color="inherit" component="div" style={{paddingRight: '10px'}} sx={{display: { xs: 'none', md: 'flex' }}}>
-                        Hilton 
+                        Hilton
                     </Typography>
                     <Typography variant="h6" color="inherit" component="div" style={{paddingRight: '10px'}} sx={{display: { xs: 'none', md: 'flex' }}}>
-                        Hilton Details 
+                        Hilton Details
                     </Typography>
                 </Toolbar>
             </Container>
@@ -154,7 +154,7 @@ export default function Home() {
               </Typography>
               <Grid container spacing={1}>
                   <Grid xs={12}>
-                      <IssueTable />
+                      <SimpleTable />
                   </Grid>
               </Grid>
           </Container>
