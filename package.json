@@ -24,7 +24,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",
-    "deploy": "rm -rf public && gatsby build && gh-pages -d public -b gh-pages"
+    "deploy": "rm -rf public && gatsby build --prefix-paths && gh-pages -d public -b gh-pages"
   },
   "devDependencies": {
     "gh-pages": "4.0.0"

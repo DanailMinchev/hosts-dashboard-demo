@@ -1,5 +1,5 @@
 module.exports = {
-  // pathPrefix: "/hosts-dashboard-demo", // TODO: apply on deployment
+  pathPrefix: '/hosts-dashboard-demo',
   plugins: [
     'gatsby-plugin-top-layout',
     'gatsby-plugin-react-helmet',
