@@ -91,7 +91,7 @@ const cardRevenue = (
 export default function Index() {
   const [tableRows, setTableRows] = useState([
     createData("0001", "E3HFG", true, 60, 45, 18.7, "24/09/2023", "08/10/2022"),
-    createData("0002", "E141PQ", false, 20, 8, 5.8, "03/01/2023", "07/08/2022"),
+    createData("0002", "E141PQ", false, 0, 0, 5.8, "03/01/2023", "07/08/2022"),
   ])
 
   return (
