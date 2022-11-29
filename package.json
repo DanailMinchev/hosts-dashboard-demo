@@ -23,10 +23,12 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",
     "deploy": "rm -rf public && gatsby build --prefix-paths && gh-pages -d public -b gh-pages"
   },
   "devDependencies": {
-    "gh-pages": "4.0.0"
+    "gh-pages": "4.0.0",
+    "prettier": "2.8.0"
   }
 }
