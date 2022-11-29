@@ -5,7 +5,6 @@ import Box from "@mui/material/Box"
 import Card from "@mui/material/Card"
 import CardActions from "@mui/material/CardActions"
 import CardContent from "@mui/material/CardContent"
-import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 import TrendingUpIcon from "@mui/icons-material/TrendingUp"
 import TrendingDownIcon from "@mui/icons-material/TrendingDown"
@@ -28,9 +27,7 @@ const cardUptime = (
         }}
       />
     </CardContent>
-    <CardActions>
-      <Button size="small">Learn More</Button>
-    </CardActions>
+    <CardActions></CardActions>
   </React.Fragment>
 )
 
@@ -49,9 +46,7 @@ const cardUtilisation = (
         }}
       />
     </CardContent>
-    <CardActions>
-      <Button size="small">Learn More</Button>
-    </CardActions>
+    <CardActions></CardActions>
   </React.Fragment>
 )
 
@@ -70,9 +65,7 @@ const cardConsumption = (
         }}
       />
     </CardContent>
-    <CardActions>
-      <Button size="small">Learn More</Button>
-    </CardActions>
+    <CardActions></CardActions>
   </React.Fragment>
 )
 
@@ -91,9 +84,7 @@ const cardRevenue = (
         }}
       />
     </CardContent>
-    <CardActions>
-      <Button size="small">Learn More</Button>
-    </CardActions>
+    <CardActions></CardActions>
   </React.Fragment>
 )
 

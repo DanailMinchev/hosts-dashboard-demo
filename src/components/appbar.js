@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
+import Link from "./Link"
 
 export const HiltonAppBar = () => {
   return (
@@ -29,8 +30,11 @@ export const HiltonAppBar = () => {
             style={{ paddingRight: "10px" }}
             sx={{ display: { xs: "none", md: "flex" } }}
           >
-            Hosts
+            <Link href="#" color="inherit" style={{ textDecoration: "none" }}>
+              All hosts
+            </Link>
           </Typography>
+          &nbsp;
           <Typography
             variant="h6"
             color="inherit"
@@ -38,8 +42,11 @@ export const HiltonAppBar = () => {
             style={{ paddingRight: "10px" }}
             sx={{ display: { xs: "none", md: "flex" } }}
           >
-            Hilton
+            <Link href="#" color="inherit" style={{ textDecoration: "none" }}>
+              Hilton host
+            </Link>
           </Typography>
+          &nbsp;
           <Typography
             variant="h6"
             color="inherit"
@@ -47,7 +54,7 @@ export const HiltonAppBar = () => {
             style={{ paddingRight: "10px" }}
             sx={{ display: { xs: "none", md: "flex" } }}
           >
-            Hilton Details
+            Hilton post details
           </Typography>
         </Toolbar>
       </Container>

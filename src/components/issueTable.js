@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import {
   Button,
   Dialog,
@@ -9,15 +9,16 @@ import {
   TextField,
 } from "@mui/material"
 import { createData } from "./simpleTable"
+import Grid from "@mui/material/Unstable_Grid2"
 
 const DialogForm = props => {
   const [open, setOpen] = React.useState(false)
 
-  const handleClickOpen = () => {
+  const handleMarkAsUnavailableOpen = () => {
     setOpen(true)
   }
 
-  const updateAvailability = () => {
+  const updateAvailability = available => {
     const newTableRows = props.tableRows.map(currentRow => {
       if (currentRow.charger !== props.row.charger) {
         // No change
@@ -26,7 +27,7 @@ const DialogForm = props => {
         return createData(
           currentRow.charger,
           currentRow.postcode,
-          !currentRow.available,
+          available,
           currentRow.avgUptime,
           currentRow.utilisation,
           currentRow.kwh,
@@ -38,28 +39,31 @@ const DialogForm = props => {
     // Re-render with the new array
     props.setTableRows(newTableRows)
   }
-  const handleClose = () => {
+  const handleMarkAsUnavailableClose = () => {
     setOpen(false)
-    props.actionTakenHandler(false)
-    updateAvailability()
+    updateAvailability(false)
+  }
+  const handleMarkAsAvailable = () => {
+    updateAvailability(true)
   }
 
   return (
     <div>
-      <Button
-        variant="contained"
-        color="primary"
-        size="small"
-        onClick={handleClickOpen}
-      >
-        Make unavailable
-      </Button>
-      <Dialog open={open} onClose={handleClose}>
+      {props.row.available && (
+        <Button
+          variant="contained"
+          color="primary"
+          size="small"
+          onClick={handleMarkAsUnavailableOpen}
+        >
+          Mark as unavailable
+        </Button>
+      )}
+      <Dialog open={open} onClose={handleMarkAsUnavailableClose}>
         <DialogTitle>Mark charging point as unavailable</DialogTitle>
         <DialogContent>
           <DialogContentText>Start date</DialogContentText>
           <TextField
-            autoFocus
             margin="dense"
             id="name"
             type="date"
@@ -68,7 +72,6 @@ const DialogForm = props => {
           />
           <DialogContentText>End date</DialogContentText>
           <TextField
-            autoFocus
             margin="dense"
             id="name"
             type="date"
@@ -85,32 +88,38 @@ const DialogForm = props => {
           >
             Cancel
           </Button>
-          <Button onClick={handleClose}>Ok</Button>
+          <Button onClick={handleMarkAsUnavailableClose}>Ok</Button>
         </DialogActions>
       </Dialog>
+      {!props.row.available && (
+        <>
+          <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            onClick={handleMarkAsAvailable}
+          >
+            Mark as available
+          </Button>
+          &nbsp;
+          <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            onClick={handleMarkAsAvailable}
+          >
+            Extend downtime
+          </Button>
+        </>
+      )}
     </div>
   )
 }
 
 export const ActionButton = props => {
-  const [anchorEl, setAnchorEl] = React.useState(null)
-
-  const handleClick = event => {
-    setAnchorEl(event.currentTarget)
-  }
-
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
-
-  const open = Boolean(anchorEl)
-  const id = open ? "simple-popover" : undefined
-  const [actionTaken, changeActionTaken] = useState(true)
-
   return (
     <div>
       <DialogForm
-        actionTakenHandler={changeActionTaken}
         tableRows={props.tableRows}
         setTableRows={props.setTableRows}
         row={props.row}
@@ -118,104 +127,3 @@ export const ActionButton = props => {
     </div>
   )
 }
-
-const columns = [
-  {
-    field: "charger",
-    headerName: "Charger",
-    flex: 1,
-    editable: true,
-    align: "left",
-    headerAlign: "left",
-  },
-  {
-    field: "postcode",
-    headerName: "Postcode",
-    flex: 1,
-    editable: true,
-    align: "left",
-    headerAlign: "left",
-  },
-  {
-    field: "available",
-    headerName: "Available",
-    flex: 1,
-    editable: true,
-    align: "left",
-    headerAlign: "left",
-  },
-  {
-    field: "avgUptime",
-    headerName: "Avg. uptime",
-    flex: 1,
-    editable: true,
-    align: "left",
-    headerAlign: "left",
-  },
-  {
-    field: "utilisation",
-    headerName: "Utilisation",
-    type: "number",
-    flex: 1,
-    editable: true,
-    align: "left",
-    headerAlign: "left",
-  },
-  {
-    field: "kWh",
-    headerName: "kWh",
-    type: "number",
-    flex: 1,
-    editable: true,
-    align: "left",
-    headerAlign: "left",
-  },
-  {
-    field: "warrenty",
-    headerName: "Warrenty expires",
-    flex: 1,
-    editable: true,
-    align: "left",
-    headerAlign: "left",
-  },
-  {
-    field: "lastMaintenence",
-    headerName: "Last Maintenence",
-    flex: 1,
-    editable: true,
-    align: "left",
-    headerAlign: "left",
-  },
-  {
-    field: "action",
-    headerName: "Action",
-    flex: 1,
-    renderCell: ActionButton,
-    align: "left",
-    headerAlign: "left",
-  },
-]
-const rows = [
-  {
-    charger: "0001",
-    postcode: "E3HFG",
-    available: "Yes",
-    avgUptime: "60%",
-    utilisation: 45,
-    kWh: 18.7,
-    warrenty: "24/09/2023",
-    lastMaintenence: "08/10/2022",
-    id: 1,
-  },
-  {
-    charger: "0002",
-    postcode: "E141PQ",
-    available: "No",
-    avgUptime: "20%",
-    utilisation: 8,
-    kWh: 5.8,
-    warrenty: "03/01/2023",
-    lastMaintenence: "07/08/2022",
-    id: 2,
-  },
-]

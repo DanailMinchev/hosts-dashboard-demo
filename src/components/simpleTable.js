@@ -97,11 +97,11 @@ export default function BasicTable(props) {
                   <>{row.avgUptime}%</>
                 )}
               </TableCell>
-              <TableCell align="left">{row.utilisation}</TableCell>
+              <TableCell align="left">{row.utilisation}%</TableCell>
               <TableCell align="left">{row.kwh}</TableCell>
               <TableCell align="left">{row.warrantyExpires}</TableCell>
               <TableCell align="left">{row.lastMaintenance}</TableCell>
-              <TableCell align="center">
+              <TableCell align="left">
                 <ActionButton
                   tableRows={props.tableRows}
                   setTableRows={props.setTableRows}
