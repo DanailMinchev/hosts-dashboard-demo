@@ -6,8 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import {Button, Chip} from "@mui/material";
+import {Chip} from "@mui/material";
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
+import { ActionButton } from './issueTable';
 
 export function createData(
     charger,
@@ -67,26 +68,7 @@ export default function BasicTable(props) {
                             <TableCell align="left">{row.warrantyExpires}</TableCell>
                             <TableCell align="left">{row.lastMaintenance}</TableCell>
                             <TableCell align="center">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    size="small"
-                                    style={{marginLeft: 16}}
-                                    onClick={() => {
-                                        const newTableRows = props.tableRows.map((currentRow) => {
-                                            if (currentRow.charger !== row.charger) {
-                                                // No change
-                                                return currentRow
-                                            } else {
-                                                return createData(currentRow.charger, currentRow.postcode, !currentRow.available, currentRow.avgUptime, currentRow.utilisation, currentRow.kwh, currentRow.warrantyExpires, currentRow.lastMaintenance)
-                                            }
-                                        })
-                                        // Re-render with the new array
-                                        props.setTableRows(newTableRows)
-                                    }}
-                                >
-                                    Action
-                                </Button>
+                                <ActionButton tableRows={props.tableRows} setTableRows={props.setTableRows} row={row}/>
                             </TableCell>
                         </TableRow>
                     ))}
